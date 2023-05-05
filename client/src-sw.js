@@ -1,8 +1,11 @@
 const { offlineFallback, warmStrategyCache } = require('workbox-recipes');
 const { CacheFirst } = require('workbox-strategies');
+// in mini-proj
 const { registerRoute } = require('workbox-routing');
+// in mini-proj
 const { CacheableResponsePlugin } = require('workbox-cacheable-response');
 const { ExpirationPlugin } = require('workbox-expiration');
+// in mini-proj
 const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
 precacheAndRoute(self.__WB_MANIFEST);
@@ -27,5 +30,16 @@ warmStrategyCache({
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
-// added offlineFallback into the registerRoute(); not sure if that is correct
-registerRoute(offlineFallback);
+registerRoute(
+  ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
+  new offlineFallback({
+    // Name of the cache storage.
+    cacheName: 'asset-cache',
+    plugins: [
+      // This plugin will cache responses with these headers to a maximum-age of 30 days
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+    ],
+  })
+);
