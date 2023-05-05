@@ -62,7 +62,7 @@ THEN I should have proper build scripts for a webpack application
 
 [GitHub repo](https://github.com/jeannav/PWA-Text-Editor)
 
-[Heroku git URL](https://pwa-text-editor-challenge19.herokuapp.com/)
+[Heroku App](https://pwa-text-editor-challenge19.herokuapp.com/)
 
 ### Author
 
