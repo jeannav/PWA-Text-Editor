@@ -12,21 +12,24 @@ const initdb = async () =>
     },
   });
 
-// TODO: Add logic to a method that accepts some content and adds it to the database
+  // TODO: Add logic to a method that accepts some content and adds it to the database
 // not sure if this is correct or if I have the console.error in the correct place
 export const putDb = async (content) => {
   console.log('Put to the database');
   const indexedDb = await openDB(jate, 1);
   const tx = indexedDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
+  // not sure about {id: 1 value:content}
   const request = store.put({id: 1, value: content});
   const result = await request;
   console.log('data saved to database', result);
-};
-console.error('putDb not implemented');
 
-// TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => {
+};
+// part of the starter code
+// console.error('putDb not implemented');
+  // TODO: Add logic for a method that gets all the content from the database
+
+  export const getDb = async () => {
   console.log('GET all from the database');
   const indexedDb = await openDB('jate', 1);
   const tx = indexedDb.transaction('jate', 'readonly');
@@ -36,6 +39,7 @@ export const getDb = async () => {
   console.log('result.value', result);
   return result;
 };
-console.error('getDb not implemented');
+// part of the starter code
+// console.error('getDb not implemented');
 
 initdb();
