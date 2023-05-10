@@ -6,7 +6,6 @@
 ## Table of Contents
 - [User-Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
-- [Application Schreenshot](#application-screenshot)
 - [Links](#link)
 - [Author](#author)
 
@@ -48,15 +47,6 @@ THEN I should have my static assets pre cached upon loading along with subsequen
 WHEN I deploy to Heroku
 THEN I should have proper build scripts for a webpack application
 ```
-## Application Screenshot
-
-<!-- ![Homepage](./public/images/Homepage.png)
-
-![Login Page](./public/images/Login%20Page.png)
-
-![Dashboard](./public/images/Dashboard.png)
-
-![Post Page](./public/images/Post%20Page.png) -->
 
 ## Links
 
